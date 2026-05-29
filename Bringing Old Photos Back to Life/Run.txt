@@ -1,0 +1,75 @@
+* Simple GUI - Run on one image only 
+==============
+
+python GUI.py
+1. Run GUI.py file.
+2. Click browse and select your image from test_images/old_w_scratch folder to remove scratches.
+3. Click Modify Photo button.
+4. Wait for a while and see results on GUI window.
+5. Exit window by clicking Exit Window and get your result image in output folder.
+
+
+=================================
+# Run on folder of images :
+=================================
+
+
+
+1) Full Pipeline (Restore old images)
+
+#For images without scratches: 
+
+python run.py --input_folder [test_image_folder_path] \
+              --output_folder [output_path] \
+              --GPU 0
+
+
+# For scratched images:
+python run.py --input_folder [test_image_folder_path] \
+              --output_folder [output_path] \
+              --GPU 0 \
+              --with_scratch
+
+python run.py --input_folder test_images\old_w_scratch  --output_folder result/Full_Pipeline/old_w_scratch --GPU 0 --with_scratch
+
+#For high-resolution images with scratches:
+python run.py --input_folder [test_image_folder_path] \
+              --output_folder [output_path] \
+              --GPU 0 \
+              --with_scratch \
+              --HR
+
+
+2) Scratch Detection    
+
+cd Global/
+
+
+python detection.py --test_path [test_image_folder_path] \
+                    --output_dir [output_path] \
+                    --input_size [resize_256|full_size|scale_256]                
+
+python detection.py --test_path ..\test_images\old_w_scratch --output_dir ../result/Scratch_Detection/old_w_scratch --input_size full_size
+
+
+
+
+3) Global Restoration
+
+
+cd Global/
+
+# With Scratches and quality restore
+python test.py --Scratch_and_Quality_restore \
+               --test_input [test_image_folder_path] \
+               --test_mask [corresponding mask] \
+               --outputs_dir [output_path]
+
+# With quality restore
+python test.py --Quality_restore \
+               --test_input [test_image_folder_path] \
+               --outputs_dir [output_path]
+
+
+python test.py --Quality_restore --test_input ../test_images\old --outputs_dir ../result/Global_Restoration/old
+               

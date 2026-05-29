@@ -1,0 +1,72 @@
+
+1. Create conda environment:
+conda create -n BackToLife python=3.11
+conda activate BackToLife
+
+
+2. clone the "repo" to a working directory 
+md tutorials
+cd tutorials 
+
+git clone https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life.git
+cd Bringing-Old-Photos-Back-to-Life
+
+3. Install :
+
+nvcc --version
+
+# Cuda 12.4
+conda install pytorch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 pytorch-cuda=12.4 -c pytorch -c nvidia
+
+# More : 
+pip install opencv-python==4.11.0.86
+pip install matplotlib==3.10.0
+pip install dlib==20.0.1
+pip install scikit-image==0.26.0
+pip install easydict==1.13
+pip install PyYAML==6.0.3
+pip install dominate==2.9.1
+pip install dill==0.4.1
+pip install tensorboardX==2.6.5
+pip install scipy==1.17.1
+pip install einops==0.8.2
+pip install pysimplegui==6.0
+
+
+
+4. Clone the Synchronized-BatchNorm-PyTorch repository for
+
+cd Face_Enhancement\models\networks\
+git clone https://github.com/vacancy/Synchronized-BatchNorm-PyTorch
+xcopy /E /I /Y Synchronized-BatchNorm-PyTorch\sync_batchnorm sync_batchnorm
+cd ..\..\..\
+
+cd Global\detection_models
+git clone https://github.com/vacancy/Synchronized-BatchNorm-PyTorch
+xcopy /E /I /Y Synchronized-BatchNorm-PyTorch\sync_batchnorm sync_batchnorm
+cd ..\..\
+
+5. Download the landmark detection pretrained model
+
+cd Face_Detection
+curl -L -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+# Decompression via Python (since cmd doesn't have a built-in bzip2 tool):
+python -c "import bz2; open('shape_predictor_68_face_landmarks.dat', 'wb').write(bz2.BZ2File('shape_predictor_68_face_landmarks.dat.bz2').read())"
+cd ..
+
+6. Download the pretrained model :
+#put the file Face_Enhancement/checkpoints.zip under ./Face_Enhancement, 
+#and put the file Global/checkpoints.zip under ./Global. Then unzip them respectively.
+
+cd Face_Enhancement
+curl -L -O https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life/releases/download/v1.0/face_checkpoints.zip
+tar -xf face_checkpoints.zip
+cd ..
+
+cd Global
+curl -L -O https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life/releases/download/v1.0/global_checkpoints.zip
+tar -xf global_checkpoints.zip
+cd ..
+
+
+
