@@ -1,0 +1,42 @@
+
+
+# 1. Create a isolated Conda environment with Python 3.10
+conda create -n InvSR python=3.10 -y
+
+# 2. Activate the newly created environment
+conda activate InvSR 
+
+# 3. Clone repo:
+
+cd tutorials
+git clone https://github.com/zsyOAOA/InvSR.git
+cd InvSR
+
+# 4. Install PyTorch 2.4.0 
+pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu121
+
+
+# 5. Install specific libraries
+pip install -U xformers==0.0.27.post2 --index-url https://download.pytorch.org/whl/cu121
+pip install -e ".[torch]"
+pip install -r requirements.txt
+pip install "opencv-python-headless<4.10"
+pip install numpy==1.26.4
+pip install gradio==6.17.3   
+
+========================================================
+
+6. Download the weights file : "noise_predictor_sd_turbo_v5.pth" from this links
+
+https://huggingface.co/OAOA/InvSR/blob/main/noise_predictor_sd_turbo_v5.pth
+
+and copy it into : "C:\tutorials\InvSR\weights\"
+
+
+# Inference
+
+A. Option 1 - App inference :
+python app.py
+
+
+
