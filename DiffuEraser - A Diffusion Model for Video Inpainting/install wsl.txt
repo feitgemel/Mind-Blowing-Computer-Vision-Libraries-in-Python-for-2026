@@ -1,0 +1,109 @@
+
+# Open Powershell and run wsl for Linux
+wsl
+
+
+# Clone repo:
+
+cd tutorials
+git clone https://github.com/lixiaowen-xw/DiffuEraser.git
+cd DiffuEraser
+
+
+
+# create new anaconda env
+conda create -n diffueraser python=3.9.19  
+conda activate diffueraser
+
+
+
+
+# install python dependencies
+pip install -r requirements.txt 
+
+# 
+
+1. diffuEraser : Download our pretrained models from Hugging Face : https://huggingface.co/lixiaowen/diffuEraser
+
+# brushnet
+huggingface-cli download lixiaowen/diffuEraser --local-dir weights/diffuEraser --include "brushnet/*"
+
+# unet_main
+huggingface-cli download lixiaowen/diffuEraser --local-dir weights/diffuEraser --include "unet_main/*"
+
+
+
+
+2. stable-diffusion-v1-5 : Download pretrained weight : https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5
+
+huggingface-cli download stable-diffusion-v1-5/stable-diffusion-v1-5 --local-dir weights/stable-diffusion-v1-5
+
+
+
+3. PCM_Weights Download : https://huggingface.co/wangfuyun/PCM_Weights
+
+huggingface-cli download wangfuyun/PCM_Weights --local-dir weights/PCM_Weights --include "sd15/*"
+
+
+
+
+
+4. propainter Download : https://github.com/sczhou/ProPainter/releases/tag/v0.1.0
+
+mkdir -p weights/propainter
+wget https://github.com/sczhou/ProPainter/releases/download/v0.1.0/ProPainter.pth -O weights/propainter/ProPainter.pth
+wget https://github.com/sczhou/ProPainter/releases/download/v0.1.0/raft-things.pth -O weights/propainter/raft-things.pth
+wget https://github.com/sczhou/ProPainter/releases/download/v0.1.0/recurrent_flow_completion.pth -O weights/propainter/recurrent_flow_completion.pth
+
+
+
+5. sd-vae-ft-mse Download : https://huggingface.co/stabilityai/sd-vae-ft-mse
+
+huggingface-cli download stabilityai/sd-vae-ft-mse --local-dir weights/sd-vae-ft-mse
+
+
+# If the download is successful, the checkpoints should appear as follows:
+
+weights
+   |- diffuEraser
+      |-brushnet
+      |-unet_main
+   |- stable-diffusion-v1-5
+      |-feature_extractor
+      |-...
+   |- PCM_Weights
+      |-sd15
+   |- propainter
+      |-ProPainter.pth
+      |-raft-things.pth
+      |-recurrent_flow_completion.pth
+   |- sd-vae-ft-mse
+      |-diffusion_pytorch_model.bin
+      |-...
+   |- README.md
+   |- animatediff-motion-adapter-v1-5-2 (Optional)
+      |- diffusion_pytorch_model.safetensors
+      |- ...
+
+
+cd DiffuEraser
+python run_diffueraser.py 
+
+# The results will be saved in the results folder !!!!
+
+
+  ## input params
+('--input_video', type=str, default="examples/example3/video.mp4", help='Path to the input video')
+('--input_mask', type=str, default="examples/example3/mask.mp4" , help='Path to the input mask')
+('--video_length', type=int, default=10, help='The maximum length of output video')
+('--mask_dilation_iter', type=int, default=8, help='Adjust it to change the degree of mask expansion')
+('--max_img_size', type=int, default=960, help='The maximum length of output width and height')
+('--save_path', type=str, default="results" , help='Path to the output')
+('--ref_stride', type=int, default=10, help='Propainter params')
+('--neighbor_length', type=int, default=10, help='Propainter params')
+('--subvideo_length', type=int, default=50, help='Propainter params')
+('--base_model_path', type=str, default="weights/stable-diffusion-v1-5" , help='Path to sd1.5 base model')
+('--vae_path', type=str, default="weights/sd-vae-ft-mse" , help='Path to vae')
+('--diffueraser_path', type=str, default="weights/diffuEraser" , help='Path to DiffuEraser')
+('--propainter_model_dir', type=str, default="weights/propainter" , help='Path to priori model')
+
