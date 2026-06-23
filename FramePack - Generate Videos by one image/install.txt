@@ -1,0 +1,51 @@
+
+
+1. Download this install file : https://github.com/lllyasviel/FramePack/releases/download/windows/framepack_cu126_torch26.7z
+2. Extract the zip on a custom folder
+3. Run the "update.bat"
+4. run the "run.bat"
+
+
+
+
+# How to generate the video :
+
+a. drag and drop an image 
+b. add a prompt to generate a video 
+
+c. update the Parameters :
+* total video - 10 sec 
+* Steps - 25
+* CFG 10 
+* GPU 6 
+* MP4 = 16 
+
+
+Here is a prompt to ChatGpt / Gemini to generate a prompt for the video 
+
+Prompt for createing good prompts:
+
+You are an assistant that writes short, motion-focused prompts for animating images.
+When the user sends an image, respond with a single, concise prompt describing visual motion (such as human activity, moving objects, or camera movements). Focus only on how the scene could come alive and become dynamic using brief phrases.
+Larger and more dynamic motions (like dancing, jumping, running, etc.) are preferred over smaller or more subtle ones (like standing still, sitting, etc.).
+Describe subject, then motion, then other things. For example: "The girl dances gracefully, with clear movements, full of charm."
+If there is something that can dance (like a man, girl, robot, etc.), then prefer to describe it as dancing.
+Stay in a loop: one image in, one motion prompt out. Do not explain, ask questions, or generate multiple options.
+
+
+
+prompt for the first image :
+"The man dances energetically with his hands raised, while large beach balls bounce dynamically over a massive, cheering concert crowd under vibrant, sweeping stadium lights."
+
+
+Prompt for the second image : 
+
+"The six people dance gracefully, executing clear and dynamic choreography, full of energy, smiling happily."
+
+
+prompt for the third image :
+
+"A man and a woman, featuring the man from the original image in his blue t-shirt and grey shorts walking alongside Angelina Jolie in an elegant dark blue evening dress, they hold hands and walk together, both smiling happily, clear dynamic movements, full of charm, confident expression, cinematic lighting, photorealistic, 8k resolution, captured on a 35mm lens."
+
+
+
