@@ -1,0 +1,67 @@
+
+1. Create enviroment 
+conda create -n Describe python=3.11
+conda activate Describe 
+
+
+2. Install Pytorch 
+
+nvcc --version 
+
+# ROCM 6.1 (Linux only)
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.1
+# ROCM 6.2.4 (Linux only)
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.2.4
+# CUDA 11.8
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu118
+# CUDA 12.4
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+
+############  ----->>>>>  CUDA 12.6
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+####################################
+
+
+# CPU only
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+
+
+
+3. Install "Describe Anything"
+
+cd tutorials
+
+git clone https://github.com/NVlabs/describe-anything
+cd describe-anything
+python.exe -m pip install -e . 
+
+
+
+
+4. Install all required libraries 
+
+pip install transformers==4.51.3 sentencepiece==0.2.1 accelerate==0.28.0 gradio==5.6.0 gradio-client==1.4.3 pillow==11.3.0 
+
+pip install numpy==1.26.4 opencv-python==4.9.0.80
+
+pip install pydantic==2.10.6
+pip install openai==1.55.0
+pip install requests httpx uvicorn fastapi protobuf
+
+
+
+5. Install Segment Anything
+
+pip install git+https://github.com/facebookresearch/sam2.git
+
+Create a folder named "checkpoints" inside "describe-anything"
+Download the weights file from https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_large.pt
+and copy it to : "describe-anything/checkpoints"
+
+
+6. Copy the folder "My-Media" into the "describe-anything" working folder
+
+7. Copy these files to the main "describe-anything" root folder :
+"Step1-interactive_points_dam.py"  , "Step2-interactive_box_dam.py" , "Step3-interactive_video_dam.py"
+
+8. Run Vscode open folder "c:/tutorials/describe-anything" as your working folder 

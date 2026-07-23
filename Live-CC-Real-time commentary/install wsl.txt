@@ -1,0 +1,67 @@
+
+# Open Powershell and run wsl for Linux
+wsl
+
+
+# Clone repo:
+
+cd tutorials
+git clone https://github.com/showlab/livecc.git
+cd livecc
+
+
+# create new anaconda env
+conda create -n livecc python=3.11
+conda activate livecc
+
+
+!----------------------------------------------------------------!
+# Install Pytorch 
+
+nvcc --version 
+
+# ROCM 6.1 (Linux only)
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.1
+# ROCM 6.2.4 (Linux only)
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.2.4
+# CUDA 11.8
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu118
+# CUDA 12.4
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+
+############  ----->>>>>  CUDA 12.6
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+####################################
+
+
+# CPU only
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+
+!----------------------------------------------------------------!
+
+# install python dependencies :
+
+
+pip install "transformers==4.50.0" accelerate deepspeed peft opencv-python decord datasets tensorboard "gradio==5.15.0" pillow-heif gpustat timm sentencepiece openai av==12.0.0 "qwen-vl-utils==0.0.8" liger-kernel==0.5.5 numpy==1.24.4 "huggingface-hub>=0.26.0"
+
+pip install flash-attn --no-build-isolation
+
+pip install livecc-utils==0.0.2
+
+pip install liger_kernel
+pip install bitsandbytes
+pip install yt-dlp
+
+# Copy the 3 files to the LiveCC folder :
+Step1 - LiveCC Inference.py
+Step2 - LiveCC Inference plus Final video with narration.py
+Step3 - Youtube_livecc_inference.py
+
+Run Vscod :
+
+1. Run "code ."" 
+2. Make sure your working folder is "Livcc"
+3. Choose the livecc enviroment using <Ctrl> <Shift> <p> and select inteperter "livcc"
+
+
+
