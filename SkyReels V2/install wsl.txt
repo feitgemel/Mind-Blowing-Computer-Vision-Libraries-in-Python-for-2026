@@ -1,0 +1,59 @@
+
+# Open Powershell and run wsl for Linux
+wsl
+
+
+# clone the repository.
+
+cd tutorials
+git clone https://github.com/SkyworkAI/SkyReels-V2
+cd SkyReels-V2
+
+
+# create new anaconda env
+conda create -n SkyReels python=3.10.12
+conda activate SkyReels
+
+
+!----------------------------------------------------------------!
+# Install Pytorch 
+
+nvcc --version 
+
+# ROCM 6.1 (Linux only)
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/rocm6.1
+# ROCM 6.2 (Linux only)
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/rocm6.2
+# CUDA 11.8
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu118
+# CUDA 12.1
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+#### CUDA 12.4 -----> My version 
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
+# CPU only
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+
+
+!----------------------------------------------------------------!
+
+
+
+# Install dependencies : 
+
+pip install packaging ninja setuptools
+pip install psutil ninja packaging
+
+pip install flash-attn --no-build-isolation
+
+pip install -r requirements.txt
+
+
+
+# Run Vscod :
+
+1. Run "code ."" 
+2. Make sure your working folder is "SkyReels"
+3. Choose the SkyReels enviroment using <Ctrl> <Shift> <p> and select inteperter "SkyReels"
+
+
+
