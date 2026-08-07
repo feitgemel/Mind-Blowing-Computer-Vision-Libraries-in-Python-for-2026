@@ -1,0 +1,68 @@
+
+# Open Powershell and run wsl for Linux
+=======================
+wsl
+
+
+# clone the repository.
+=======================
+
+cd tutorials
+git clone https://github.com/ZeyueT/AudioX.git
+cd AudioX
+
+
+# create new anaconda env
+conda create -n AudioX python=3.8.20
+conda activate AudioX
+
+
+
+# Install dependencies
+pip install git+https://github.com/ZeyueT/AudioX.git
+conda install -c conda-forge ffmpeg libsndfile
+pip install omegaconf
+pip install timm
+
+
+# Download Pretrained Checkpoints :
+=======================
+mkdir -p model
+
+# Download AudioX
+mkdir -p model/AudioX
+wget https://huggingface.co/HKUSTAudio/AudioX/resolve/main/model.ckpt -O model/AudioX/model.ckpt
+wget https://huggingface.co/HKUSTAudio/AudioX/resolve/main/config.json -O model/AudioX/config.json
+
+# Download AudioX-MAF
+mkdir -p model/AudioX-MAF
+wget https://huggingface.co/HKUSTAudio/AudioX-MAF/resolve/main/model.ckpt -O model/AudioX-MAF/model.ckpt
+wget https://huggingface.co/HKUSTAudio/AudioX-MAF/resolve/main/config.json -O model/AudioX-MAF/config.json
+
+# Download AudioX-MAF-MMDiT
+mkdir -p model/AudioX-MAF-MMDiT
+wget https://huggingface.co/HKUSTAudio/AudioX-MAF-MMDiT/resolve/main/model.ckpt -O model/AudioX-MAF-MMDiT/model.ckpt
+wget https://huggingface.co/HKUSTAudio/AudioX-MAF-MMDiT/resolve/main/config.json -O model/AudioX-MAF-MMDiT/config.json
+
+
+# Download synchformer
+wget https://huggingface.co/HKUSTAudio/AudioX-MAF/resolve/main/synchformer_state_dict.pth -O model/synchformer_state_dict.pth
+
+# Download VAE
+wget https://huggingface.co/HKUSTAudio/AudioX-MAF-MMDiT/resolve/main/VAE.ckpt -O model/VAE.ckpt
+
+
+!----------------------------------------------------------------!
+
+
+# Run Vscod :
+=======================
+
+1. Run "code ."" 
+2. Make sure your working folder is "AudioX"
+3. Choose the SkyReels enviroment using <Ctrl> <Shift> <p> and select inteperter "AudioX"
+
+
+
+
+
