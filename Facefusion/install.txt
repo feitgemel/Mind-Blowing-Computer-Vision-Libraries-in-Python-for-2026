@@ -1,0 +1,48 @@
+
+***********   Facefusion version = 3.8.2 *****************
+**********************************************************
+
+1. Create conda environment:
+conda create -n facefusion38 python=3.12
+conda activate facefusion38
+
+
+2. clone the "repo" to a working directory 
+md tutorials
+cd tutorials 
+
+git clone https://github.com/facefusion/facefusion
+cd facefusion
+
+3. Install :
+
+3.1 # CUDA :Compatible with NVIDIA graphic cards:
+conda install nvidia/label/cuda-12.9.1::cuda-runtime nvidia/label/cudnn-9.10.0::cudnn
+
+3.2 TensorRT : Suitable for high performance NVIDIA graphic cards:
+pip install tensorrt==10.12.0.36 --extra-index-url https://pypi.nvidia.com
+
+Or 
+
+3.3 #Suitable for Intel Arc graphic cards: (No Nvidia card)
+conda install conda-forge::openvino=2025.3.0
+
+# More : 
+
+pip install gradio-rangeslider==0.0.8
+pip install gradio==5.50.0
+pip install numpy==2.4.6
+pip install onnx==1.22.0
+pip install onnxruntime==1.28.0
+pip install opencv-python-headless==5.0.0.93
+pip install tqdm==4.70.0
+pip install scipy==1.18.0
+
+
+4. Reload Your Environment
+conda deactivate
+conda activate facefusion38
+
+5. Run :
+
+python facefusion.py run --open-browser
