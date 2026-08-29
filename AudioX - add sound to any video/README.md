@@ -1,6 +1,6 @@
-# AI That Sees Video & Generates Match Sound | AudioX
+# How to Train ViT Models on Cheap GPU | VaultLayer
 <p align="center">
-  <img width="800" src="AudioX - AI That Sees Video & Generates Match Sound.png" "image">
+  <img width="800" src="How to Train ViT Models on Cheap GPU.jpeg" "image">
 </p>
 
 ##
@@ -8,24 +8,31 @@
 
 <font size= "4" >
 
-Did you know AI can "see" a silent video and automatically generate perfectly synced, high-quality audio for it? 🎬🔊
+Want to train heavy AI and Computer Vision models without spending thousands on a local GPU rig? In this tutorial, you'll learn how to train a state-of-the-art Vision Transformer (ViT) on a playing cards dataset (2,000+ images) using on-demand, low-cost Cloud GPUs on VaultLayer—for just pennies!
 
-In this tutorial, we cover AudioX—a cutting-edge, open-source AI framework that analyzes video frames to create matching sound effects, background audio, and music from scratch. Using Python and PyTorch, we’ll walk you through how the Multimodal Adaptive Fusion (MAF) module and SynchFormer feature extractor allow the model to visually inspect your input video and output crystal-clear, aligned audio for free!
+We walk through the entire pipeline: bootstrapping our environment in WSL, syncing data with zero egress fees, fine-tuning Google's Vision Transformer using PyTorch and Hugging Face Trainer, and running local inference with 100% accuracy.
 
-Whether you’re a developer, researcher, or video creator looking to automate sound design, this guide walks you through every step of the codebase—from dynamic Hugging Face model loading to final MP4 video export.
+🔗 Try VaultLayer Cloud GPU: https://vaultlayer.cloud/?ref=d30a7bda1faf 
 
 
 🔍 What You’ll Learn:
 
-💻 How AI Analyzes Video to Make Free Sound ? <br/>
-💻 Environment setup on WSL . <br/>
-💻 Step 1: Analyze Video and Make Audio - MAF . <br/>
-💻 Step 2: Analyze Video and Make Audio - MAF-MMDiT. <br/>
+
+💻 VaultLayer Dashboard & Balance Setup <br/>
+💻 Generating API Access Tokens <br/>
+💻 Project Overview: 4-Step Architecture <br/>
+💻- WSL Setup & Installing VaultLayer CLI <br/>
+💻 Syncing 2,000+ Card Images to Cloud Storage <br/>
+💻 ViT Training Pipeline Script Walkthrough (PyTorch & Hugging Face) <br/>
+💻Launching Remote GPU Job & Auto-Hardware Assignment <br/>
+💻 Live Training Logs, Early Stopping & Accuracy Breakdown <br/>
+💻 Downloading Checkpoints to Local Machine <br/>
+💻 Local Inference & Testing Random Card Predictions <br/>
 
 🔔 Subscribe for more Python AI, Computer Vision, and Deep Learning tutorials!
 
 
-You can find the link for the [tutorial](https://youtu.be/8m4Hsoz_5O0) here. <br/>
+You can find the link for the [tutorial](https://youtu.be/hQoPPGkhVmI) here. <br/>
 
 You can find more Mind-Blowing Computer Vision tutorials in this [playlist](https://www.youtube.com/playlist?list=PLdkryDe59y4bFpkDKfKkPLjfjYWCBdXDu)
 
