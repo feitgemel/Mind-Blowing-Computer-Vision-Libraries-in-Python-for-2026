@@ -1,0 +1,44 @@
+#Run PowerShell
+wsl
+
+# Create a clean conda environment with Python 3.11
+conda create -n medgemma python=3.11 -y
+conda activate medgemma
+
+
+# Install Pytorch 2.6.0
+
+# Find your Cuda version
+nvcc --version 
+
+# CUDA 12.6
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+
+
+# Install Hugging Face dependencies (Gemma 3 requires transformers >= 4.50.0)
+pip install -U "transformers>=4.50.0" accelerate huggingface_hub pillow bitsandbytes
+pip install matplotlib
+
+# Access the model :
+- Open your browser and navigate to: https://huggingface.co/google/medgemma-4b-it
+- At the top of the page, locate the terms and conditions form titled "Access MedGemma on Hugging Face".
+- Click Acknowledge / Agree and submit. Access is granted immediately. If access was already granted, a green confirmation banner will indicate that you have permission.
+
+#Generate a read only token from Hugging face for download the model
+https://huggingface.co/settings/tokens
+
+export HF_TOKEN="hf_YourToken"
+
+# Authenticate with Hugging Face (using the Token)
+hf auth login --force
+
+# Create a working folder 
+cd c:/tutorials
+mkdir medgemma
+cd medgemma
+
+# Run vscode :
+code . 
+
+# Chnage Python interpertoer  
+Choose the "medgemma" as your Python interpertaer in the vscode using <cntl> + <shift> + p 
