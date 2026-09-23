@@ -1,0 +1,86 @@
+
+# Open Powershell and run wsl for Linux
+wsl
+
+# create new anaconda env
+conda create -n TrainYourFace python=3.11
+conda activate TrainYourFace
+
+
+!----------------------------------------------------------------!
+# Install Pytorch 
+
+nvcc --version 
+
+# ROCM 6.1 (Linux only)
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.1
+# ROCM 6.2.4 (Linux only)
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.2.4
+# CUDA 11.8
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu118
+# CUDA 12.4
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+
+############  ----->>>>>  CUDA 12.6
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+####################################
+
+
+# CPU only
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+
+!----------------------------------------------------------------!
+
+# install python dependencies :
+
+pip install diffusers==0.32.2 
+pip install  transformers==4.49.0 
+pip install  accelerate==1.4.0 
+pip install  peft==0.14.0 
+pip install  bitsandbytes==0.45.2 
+pip install  safetensors==0.5.2 
+pip install  invisible-watermark==0.2.0
+
+
+
+# Choose a working folder. I named it "Train-Your-Own-face-with-LoRA" under "c:/Tutorilas"
+
+cd tutorilas
+mkdir "Train-Your-Own-face-with-LoRA"
+cd  "Train-Your-Own-face-with-LoRA"
+
+
+
+#Step 1: Organize the Dataset Folder 
+
+1. Create a dedicated project directory: dataset/my_face.
+2. Add 15–25 high-quality images:
+3. Around 10 close-up portrait shots.
+4. Around 5–8 medium shots (upper body / waist-up).
+5. 2–3 full-body shots.
+6. Ensure strong diversity in backgrounds, lighting conditions, facial expressions, and clothing.
+7. Avoid sunglasses, hats, heavy shadows, or filters that obscure facial features.
+8. Supported formats: .jpg or .png. Manual cropping to 1024x1024 is not required; the training pipeline handles resizing and bucket aspect-ratio adjustments automatically.
+
+
+
+#Step 2: Download my code and copy it to the working folder
+Copy the Python code "Step1-train-your-face-images.py" and "step2-test-your-face-lora.py" to the working folder
+
+
+#Step 3 - Run Vscod for Generate image with your face :
+
+1. Run "code ."
+2. Make sure your working folder is "TrainYourFace"
+3. Choose the TrainYourFace enviroment using <Ctrl> <Shift> <p> and select inteperter "TrainYourFace"
+
+
+#Step 4 - Run the code : Step1 for train , and step2 for generate your images 
+
+
+
+
+
+
+
+
