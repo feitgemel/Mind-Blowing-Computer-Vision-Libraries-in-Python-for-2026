@@ -1,0 +1,52 @@
+=====================================================
+Installation Guide: V-JEPA 2 Conda Environment
+=====================================================
+
+1. System Requirements:
+   - OS: Linux or Windows (ensure up-to-date NVIDIA drivers on Windows).
+   - GPU: NVIDIA GPU with at least 6GB–8GB VRAM (CPU is supported, but inference will be slow).
+   - Environment Manager: Miniconda or Anaconda.
+
+- Open Powershell , and run wsl
+wsl <enter>
+
+2. Create a clean Conda environment:
+   Open your terminal / Anaconda Prompt and run:
+
+   conda create -n vjepa_env python=3.10 -y
+   conda activate vjepa_env
+
+3. Install PyTorch with CUDA support:
+
+    #Pytorch versions :
+    https://pytorch.org/get-started/previous-versions/ 
+
+    # find your Cuda version
+    nvidia-smi
+    nvcc --version
+
+   (Example command for CUDA 12.6 - adjust according to your installed CUDA runtime):
+    pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu126
+
+
+4. Install video decoding and processing dependencies:
+   conda install -c conda-forge ffmpeg -y
+   pip install "torchcodec>=0.3,<0.6"
+   pip install torchcodec==0.5.0 "numpy<2.0.0" "opencv-python>=4.9.0" requests
+   pip install "transformers>=4.48.0"
+
+5. Create a project folder . 
+In this tutorial we will create a folder called "Vjepa_project" under c:/tutorials and place the following files in it:
+
+Vjepa_project/
+├── vjepa_inference.py
+└── videos/
+    ├── cake.mp4
+    ├── Cheese.mp4
+    └── pasta.mp4
+
+
+6. Run vscode :
+code .
+
+7. click <ctnl> + <shift> + P  , click "select interperter" and choose your the new conda enviroment "vjepa_env"
