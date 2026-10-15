@@ -1,0 +1,27 @@
+
+6. Run on Linux / wsl :
+   chmod +x scripts/demo.sh
+   ./scripts/demo.sh <path-to-your-demo-video> <title> <CoT description> [use-half]
+
+
+   Note:
+   <path-to-your-demo-video>: The path to a single video
+   [use-half] (optional): Add use-half at the end to enable half precision feature extraction.
+
+
+   #Demo on the video file "a dog"
+   chmod +x scripts/demo.sh
+   ./scripts/demo.sh "videos/dog.mp4" "A dog barking" "First, a dog pants lightly, then barks clearly while wagging its tail outdoors" use-half
+
+   # Merge the generated audio with the original video using ffmpeg:
+   ffmpeg -y -i "videos/dog.mp4" -i "results/1013_batch_size1/demo.wav" -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 "results/1013_batch_size1/dog_with_audio.mp4"
+
+
+
+
+   # Demo 2 - Trumpet
+   ./scripts/demo.sh "videos/trumpet.mp4" "A person playing the trumpet" "First, a musician takes a breath, then plays clear and melodic trumpet notes with acoustic resonance" use-half
+
+   ffmpeg -y -i "videos/trumpet.mp4" -i "results/1014_batch_size1/demo.wav" -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 "results/1014_batch_size1/trumpet_with_audio.mp4"
+
+

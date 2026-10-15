@@ -1,0 +1,46 @@
+========================================================================
+Installation Guide: ThinkSound - unified Any2Audio generation framework
+========================================================================
+
+Run on wsl / Linux !!!
+
+1. Create a project folder . 
+   In this tutorial we will create a folder called "ThinkSound" under c:/tutorials 
+
+   git clone -b master https://github.com/liuhuadai/ThinkSound.git
+   cd ThinkSound
+
+2. Create a clean Conda environment:
+
+   conda create -n thinksound python=3.10
+   conda activate thinksound
+
+
+3. Install Dependencies: 
+
+   nvcc --version 
+
+   # CUDA 12.6
+   pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+
+   pip install thinksound==0.0.19
+   conda install -y -c conda-forge 'ffmpeg<7'
+
+4. Download pretrained weights
+
+   #Download pretrained weights https://huggingface.co/liuhuadai/ThinkSound to Directory ckpts/
+   # model weights can be also downloaded from https://www.modelscope.cn/models/iic/ThinkSound
+   git lfs install
+   git clone https://huggingface.co/liuhuadai/ThinkSound ckpts
+
+5. Install more Pythob libraires for better performance:
+
+   sudo apt update && sudo apt install -y build-essential ninja-build ffmpeg
+   pip install packaging ninja
+   #pip install flash-attn --no-build-isolation
+
+   pip install "setuptools<70.0.0" wheel
+   pip install soxr soundfile
+   pip install "transformers<=4.43.4"
+
+# To improve inference and training speed, you may optionally install a FlashAttention backend compatible with your system and PyTorch version.
