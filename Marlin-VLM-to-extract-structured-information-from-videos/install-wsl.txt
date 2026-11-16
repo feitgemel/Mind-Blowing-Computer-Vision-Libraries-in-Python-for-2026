@@ -1,0 +1,50 @@
+# Model : https://huggingface.co/NemoStation/Marlin-2B
+Register free the link to download the model from HuggingFace
+
+# Open Powershell and run wsl for Linux
+wsl
+
+
+# Update system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install build tools, FFmpeg, and media development headers
+sudo apt install -y build-essential git ffmpeg libsm6 libxext6 libavcodec-dev libavformat-dev libavutil-dev
+
+# Option A: Using Conda (recommended)
+conda create -n marlin python=3.11 -y
+conda activate marlin
+
+
+
+# 1. Core build tools (pinned)
+pip install pip==25.0.1 setuptools==75.8.0 wheel==0.45.1 packaging==24.2
+
+# 2. PyTorch wheel with CUDA 12.4
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+
+# 3. Video decoding dependencies
+pip install av==14.1.0 Pillow==11.1.0 torchcodec==0.2.0
+
+# 4. Transformers and model dependencies
+pip install transformers==5.7.0 huggingface-hub==1.5.0 accelerate==1.4.0 qwen-vl-utils==0.0.14 safetensors==0.5.2 
+
+# 5. FFmpeg install 
+conda install -c conda-forge "ffmpeg>=6,<8" -y
+
+# 6ץ Matplotlib install
+pip install matplotlib==3.10.0
+
+
+# Install Hugging Face authenticate
+export HF_TOKEN="hf_your_actual_token_here"
+hf auth login
+
+
+# Run vscode in WSL
+code .
+
+# Change the Python interpreter to the conda environment you created (marlin) in VSCode.
+
+
+
